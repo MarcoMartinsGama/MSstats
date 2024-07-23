@@ -1,0 +1,53 @@
+files:
+  evidence: evidence.txt
+  keys: keys.txt
+  contrasts: contrast.txt
+  summary: summary.txt
+  output: results.txt
+qc:
+  basic: 0
+  extended: 0
+  extendedSummary: 0
+data:
+  enabled: 1
+  silac:
+    enabled: 0
+  filters:
+    enabled: 1
+    contaminants: 1
+    protein_groups: remove
+    modifications: PH
+  sample_plots: 1
+msstats:
+  enabled: 1
+  msstats_input: ~
+  profilePlots: after
+  normalization_method: equalizeMedians
+  normalization_reference: ~
+  summaryMethod: TMP
+  MBimpute: 1
+  censoredInt: NA
+  feature_subset: all
+  n_top_feature: 3
+  logTrans: 2
+  remove_uninformative_feature_outlier: no
+  min_feature_count: 2
+  equalFeatureVar: yes
+  remove50missing: no
+  fix_missing: ~
+  maxQuantileforCensored: 0.999
+  use_log_file: no
+  append: no
+  log_file_path: ~
+output_extras:
+  enabled: 1
+  annotate:
+    enabled: 1
+    species: HUMAN
+  plots:
+    volcano: 1
+    heatmap: 1
+    LFC: -0.58 0.58
+    FDR: 0.05
+    heatmap_cluster_cols: 0
+    heatmap_display: log2FC
