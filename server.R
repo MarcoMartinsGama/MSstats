@@ -37,22 +37,7 @@ shinyServer(function(input, output, session) {
         config <- yaml.load("config_phospho.yaml")
       
       artmsQuantification(config, display_msstats = TRUE)
-      
-      input_data <- read.delim("results/results-annotated.txt", header = TRUE, sep = "\t", quote = "", stringsAsFactors = FALSE)
-      log2FC_data <- input_data %>%
-        select(Protein, Label, log2FC) %>%
-        pivot_wider(names_from = Label, values_from = log2FC) %>%
-        rename_with(~ paste0(., "-log2FC"), -Protein)
-      # Pivot the data to the wide format for adj.pvalue
-      adj_pvalue_data <- input_data %>%
-        select(Protein, Label, adj.pvalue) %>%
-        pivot_wider(names_from = Label, values_from = adj.pvalue) %>%
-        rename_with(~ paste0(., "-adj.pvalue"), -Protein)
-      # Merge the log2FC and adj.pvalue data
-      output_data <- full_join(log2FC_data, adj_pvalue_data, by = "Protein")
-      
-      write.table(output_data, file = "results/Cytoscape-msstats.txt", sep = "\t", row.names = FALSE, quote = FALSE)
-      
+  
       # Update UI to show the download button
       output$download_button <- renderUI({
         downloadButton("download_result", "Download results folder")
