@@ -3,7 +3,7 @@ files:
   keys: keys.txt
   contrasts: contrast.txt
   summary: summary.txt
-  output: results.txt
+  output: results/results.txt
 qc:
   basic: 0
   extended: 0
@@ -21,7 +21,7 @@ data:
 msstats:
   enabled: 1
   msstats_input: ~
-  profilePlots: after
+  profilePlots: none
   normalization_method: equalizeMedians
   normalization_reference: ~
   summaryMethod: TMP
