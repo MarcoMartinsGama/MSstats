@@ -15,7 +15,7 @@ data:
   filters:
     enabled: 1
     contaminants: 1
-    protein_groups: remove
+    protein_groups: keep
     modifications: PH
   sample_plots: 1
 msstats:
